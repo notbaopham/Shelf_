@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: shelf-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shelf_user
+      POSTGRES_PASSWORD: shelf_password
+      POSTGRES_DB: shelf_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - shelf_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  shelf_postgres_data:
